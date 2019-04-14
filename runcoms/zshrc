@@ -11,3 +11,21 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+eval $(dircolors -b $HOME/.dir_colors)
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/rdoczi/.sdkman"
+[[ -s "/home/rdoczi/.sdkman/bin/sdkman-init.sh" ]] && source "/home/rdoczi/.sdkman/bin/sdkman-init.sh"
+
+function startdl() {
+	mv "$@" /mnt/data/Letoltes/rtorrent/.watch
+}
+
+function torrent() {
+	cd /mnt/data/Letoltes/rtorrent/torrents/
+}
+
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+
