@@ -11,9 +11,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-eval $(dircolors -b $HOME/.dir_colors)
-source /usr/share/doc/pkgfile/command-not-found.zsh
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/rdoczi/.sdkman"
 [[ -s "/home/rdoczi/.sdkman/bin/sdkman-init.sh" ]] && source "/home/rdoczi/.sdkman/bin/sdkman-init.sh"
@@ -29,8 +26,6 @@ function torrent() {
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always {}' --preview-window hidden --bind '?:toggle-preview'"
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200' --preview-window right"
@@ -103,4 +98,14 @@ bind-git-helper() {
 }
 bind-git-helper f b t r h
 unset -f bind-git-helper
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias ls="exa"
+alias l="exa -a"
+alias ll="exa -lgh"
+alias la="exa -lagh"
+alias lt="exa -lagh --sort modified"
+alias lg="exa -lagh --git"
 
